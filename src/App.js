@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import studentSign from './student/components/studentland';
 import teacherSign from './teacher/components/teacherland';
+import Bench from './student/components/select_bench';
 import {Button} from 'react-bootstrap';
 import './App.css';
 
@@ -20,7 +21,10 @@ const handleShow1 = () => setcheck(true);
             student
       </Button>
       <BrowserRouter>
-        <Route path="/" render={check?studentSign:teacherSign} />
+        <Route exact path="/" render={check?studentSign:teacherSign} />
+        <Route path="/select_bench">
+          <Bench/>
+        </Route>
       </BrowserRouter>
     </div>
     

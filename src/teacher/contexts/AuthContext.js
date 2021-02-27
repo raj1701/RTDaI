@@ -18,15 +18,18 @@ export function AuthProvider({ children }) {
       admin:true
     }
     db.collection('users').doc(email).set(userObj);
+    localStorage.setItem('email',email)
     return send
     
   }
 
   function login(email, password) {
+    localStorage.setItem('email',email)
     return auth.signInWithEmailAndPassword(email, password)
   }
 
   function logout() {
+    localStorage.removeItem('email')
     return auth.signOut()
   }
 

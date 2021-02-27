@@ -17,17 +17,21 @@ export function AuthProvider({ children }) {
       email:email,
       admin:false
     }
+    localStorage.setItem('email',email)
     db.collection('users').doc(email).set(userObj);
     return send
     
   }
 
   function login(email, password) {
+    localStorage.setItem('email',email)
     return auth.signInWithEmailAndPassword(email, password)
+    
   }
 
   function logout() {
     return auth.signOut()
+    localStorage.removeItem('email')
   }
 
   function resetPassword(email) {
