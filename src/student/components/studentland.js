@@ -9,6 +9,8 @@ import PrivateRoute from "./PrivateRoute"
 import ForgotPassword from "./ForgotPassword"
 import UpdateProfile from "./UpdateProfile"
 import "bootstrap/dist/css/bootstrap.min.css"
+import Courseid from "./select_course"
+
 
 const studentSign = () => {
   return (
@@ -20,7 +22,7 @@ const studentSign = () => {
         <Router>
           <AuthProvider>
             <Switch>
-              <PrivateRoute exact path="/" component={Dashboard} />
+              <PrivateRoute exact path="/" component={Courseid} />
               <PrivateRoute path="/update-profile" component={UpdateProfile} />
               <Route path="/signup" component={Signup} />
               <Route path="/login" component={Login} />

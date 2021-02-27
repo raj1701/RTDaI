@@ -29,16 +29,13 @@ export default function Courseid(){
         console.log("2")
         setLoading(true)
         console.log("3")
-        db.collection(course).doc("bench1").set(userobj)
-        console.log(db.collection(course).doc("bench1").set(userobj))
-        console.log("4")
-        db.collection(course).doc("bench2").set(userobj)
-        console.log("5")
-        db.collection(course).doc("bench3").set(userobj)
-        db.collection(course).doc("bench4").set(userobj)
-        console.log("6")
-        history.push("/")
-        console.log("7")
+        db.collection("courses").doc(course).set({
+            name:course,
+            bench1:userobj,
+            bench2:userobj,
+            bench3:userobj,
+            bench4:userobj
+        })
         } catch {
         setError("Failed to add course")
         }
