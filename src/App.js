@@ -6,7 +6,7 @@ import teacherSign from './teacher/components/teacherland';
 import Bench from './student/components/select_bench';
 import {Button} from 'react-bootstrap';
 import './App.css';
-
+import App2 from './student/example/src/App'
 const App = () => {
   const [check,setcheck] = useState(true);
 const handleShow = () => setcheck(false);
@@ -24,6 +24,9 @@ const handleShow1 = () => setcheck(true);
         <Route exact path="/" render={check?studentSign:teacherSign} />
         <Route path="/select_bench">
           <Bench/>
+        </Route>
+        <Route path="/meet">
+          <App2 />
         </Route>
       </BrowserRouter>
     </div>

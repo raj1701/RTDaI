@@ -5,17 +5,19 @@ import { useAuth } from "../contexts/AuthContext"
 import firebase from "firebase"
 import { Link, useHistory } from "react-router-dom"
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
-
+import App from '../example/src/App'
 // var data1 = []
-const course = localStorage.getItem('course')
 
 
-const Bench = () => {
 
+  const Bench = () => {
+  const [reload_count,setreload] = useState(1)
   const [data1, setData1] = useState([])
+  
   // const [loaded, setLoaded] = useState()
 
   useEffect(async () => {
+    const course = localStorage.getItem('course')
     var tempdata1 = [];
     await db.collection("courses").where("name","==",course).get().then((querySnapshot) => {querySnapshot.forEach((doc) => {
       console.log(doc.id, " => ", doc.data()); 
@@ -25,12 +27,27 @@ const Bench = () => {
 
     setData1(tempdata1);
     console.log(data1);
+    
  }, [])
- 
-
+ const [bench_count,setbenchcount] = useState(0)
+ const handleSubmit1 = () =>{
+   localStorage.setItem('bench',1)
+   setbenchcount(1)
+ }
+ const handleSubmit2 = () =>{
+  localStorage.setItem('bench',2)
+  setbenchcount(2)
+}
+const handleSubmit3 = () =>{
+  localStorage.setItem('bench',3)
+  setbenchcount(3)
+}
+const handleSubmit4 = () =>{
+  localStorage.setItem('bench',4)
+  setbenchcount(4)
+}
   return (
     <div>
-      Hello 
       {data1.map((item) => {
         return (
           <div>
@@ -47,9 +64,13 @@ const Bench = () => {
                       <p className="card-text">{item.bench1.student2}</p>
                       <p className="card-text">{item.bench1.student3}</p>
                       <p className="card-text">{item.bench1.student4}</p>
-                      <a href="#" className="btn btn-primary">
-                        Accept
-                      </a>
+                      {item.bench1.count}
+                      <div className="input-group-btn">
+                            <Button className="btn btn-default w-100" onClick={handleSubmit1} type="submit">
+                            Join bench
+                            </Button>
+                            
+                      </div>
                     </div>
                     </Card.Body>
                   </Card>
@@ -64,9 +85,55 @@ const Bench = () => {
                       <p className="card-text">{item.bench1.student2}</p>
                       <p className="card-text">{item.bench1.student3}</p>
                       <p className="card-text">{item.bench1.student4}</p>
-                      <a href="#" className="btn btn-primary">
-                        Accept
-                      </a>
+                      <div className="input-group-btn">
+                        <Button className="btn btn-default w-100" onClick={(e) =>handleSubmit2} type="submit">
+                        Join bench
+                        </Button>
+                        
+                      </div>
+                    </div>
+                    </Card.Body>
+                  </Card>
+                </CardDeck>
+                <CardDeck>
+                  <Card style={{ width: '18rem'}}>
+                  <Card.Body>
+                    <h5 className="card-header">Benches</h5>
+                    <div class="card-body">
+                      <h5 className="card-title">
+                        Course name: {item.name}
+                      </h5>
+                      <p className="card-text">{item.bench3.student1}</p>
+                      <p className="card-text">{item.bench3.student2}</p>
+                      <p className="card-text">{item.bench3.student3}</p>
+                      <p className="card-text">{item.bench3.student4}</p>
+                      {item.bench1.count}
+                      <div className="input-group-btn">
+                            <Button className="btn btn-default w-100" onClick={handleSubmit3} type="submit">
+                            Join bench
+                            </Button>
+                            
+                      </div>
+                    </div>
+                    </Card.Body>
+                  </Card>
+                  <Card style={{ width: '20rem'}}>
+                  <Card.Body>
+                    <h5 className="card-header">Benches</h5>
+                    <div class="card-body">
+                      <h5 className="card-title">
+                        Course name: {item.name}
+                      </h5>
+                      <p className="card-text">{item.bench4.student1}</p>
+                      <p className="card-text">{item.bench4.student2}</p>
+                      <p className="card-text">{item.bench4.student3}</p>
+                      <p className="card-text">{item.bench4.student4}</p>
+                      <div className="input-group-btn">
+                        <Button className="btn btn-default w-100" onClick={(e) =>handleSubmit4} type="submit">
+                        Join bench
+                        </Button>
+                        
+                      </div>
                     </div>
                     </Card.Body>
                   </Card>
@@ -75,7 +142,12 @@ const Bench = () => {
           </div>
         )
       })}
-    </div>
+      <Router>
+        <Route path="/meet">
+          <App />
+        </Route>
+      </Router>
+    </div>  
   )
 }
 

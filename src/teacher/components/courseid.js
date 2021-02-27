@@ -18,7 +18,8 @@ export default function Courseid(){
         student1: " ",
         student2: " ",
         student3: " ",
-        student4: " "
+        student4: " ",
+        count: 0
         
     }
     async function handleSubmit() {

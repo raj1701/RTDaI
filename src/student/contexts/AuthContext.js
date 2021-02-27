@@ -30,8 +30,9 @@ export function AuthProvider({ children }) {
   }
 
   function logout() {
-    return auth.signOut()
     localStorage.removeItem('email')
+    return auth.signOut()
+    
   }
 
   function resetPassword(email) {

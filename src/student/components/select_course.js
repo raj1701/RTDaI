@@ -24,7 +24,6 @@ export default function Courseid(){
     let history =  useHistory();
     async function handleSubmit() {
             await localStorage.setItem('course',course)
-            
             var path = "/select_bench"
             history.push(path)
             // var datausr =[]
