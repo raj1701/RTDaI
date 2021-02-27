@@ -14,6 +14,7 @@ export default function Courseid(){
     const [loading, setLoading] = useState(false)
     const history = useHistory()
     const [course,setcourse]=useState('');
+    const [course1,setcourse1]=useState('');
     const userobj = {
         student1: " ",
         student2: " ",
@@ -43,41 +44,90 @@ export default function Courseid(){
 
         setLoading(false)
     }
+
+
+    
+    async function handleSubmit1() {
+            await localStorage.setItem('course',course1)
+            var path = "/teachermeet"
+            history.push(path)
+        setLoading(false)
+    }
+
+    
     return(
         <>
-        <Card>
-            <Card.Body>
-            <h2 className="text-center mb-4">Add course id</h2>
-            {error && <Alert variant="danger">{error}</Alert>}
-                {/* { <Form onSubmit={handleSubmit}>
+        <div>
+            <Card>
+                <Card.Body>
+                <h2 className="text-center mb-4">Add course id</h2>
+                {error && <Alert variant="danger">{error}</Alert>}
+                    {/* { <Form onSubmit={handleSubmit}>
 
-                    <Form.Group id="course">
-                        <Form.Label>Course</Form.Label>
-                        <Form.Control type="text" ref={courseref} required/>
-                    </Form.Group>
+                        <Form.Group id="course">
+                            <Form.Label>Course</Form.Label>
+                            <Form.Control type="text" ref={courseref} required/>
+                        </Form.Group>
 
-                    <Button disabled={loading} className="w-100" type="submit">
+                        <Button disabled={loading} className="w-100" type="submit">
+                        Register
+                        </Button>
+
+                    </Form> } */}
+                    <Row>
+                        <input
+                    type="text"
+                    className="form-control"
+                    placeholder="Course ID"
+                    name="srch-term"
+                    value={course}
+                    onChange={(e) => setcourse(e.target.value)}
+                    />
+                    <div className="input-group-btn">
+                    <Button className="btn btn-default w-100" onClick={handleSubmit} type="submit">
                     Register
                     </Button>
+                    </div>
+                    </Row>
+                </Card.Body>
+            </Card>
 
-                </Form> } */}
-                <Row>
-                    <input
-                type="text"
-                className="form-control"
-                placeholder="Course ID"
-                name="srch-term"
-                value={course}
-                onChange={(e) => setcourse(e.target.value)}
-                />
-                <div className="input-group-btn">
-                <Button className="btn btn-default w-100" onClick={handleSubmit} type="submit">
-                Register
-                </Button>
-                </div>
-                </Row>
-            </Card.Body>
-        </Card>
+            <Card>
+                <Card.Body>
+                <h2 className="text-center mb-4">Teach course id</h2>
+                {error && <Alert variant="danger">{error}</Alert>}
+                    {/* { <Form onSubmit={handleSubmit}>
+
+                        <Form.Group id="course">
+                            <Form.Label>Course</Form.Label>
+                            <Form.Control type="text" ref={courseref} required/>
+                        </Form.Group>
+
+                        <Button disabled={loading} className="w-100" type="submit">
+                        Register
+                        </Button>
+
+                    </Form> } */}
+                    <Row>
+                        <input
+                    type="text"
+                    className="form-control"
+                    placeholder="Course ID"
+                    name="srch-term"
+                    value={course1}
+                    onChange={(e) => setcourse1(e.target.value)}
+                    />
+                    <div className="input-group-btn">
+                    <Button className="btn btn-default w-100" onClick={handleSubmit1} type="submit">
+                    Go to course
+                    </Button>
+                    </div>
+                    </Row>
+                </Card.Body>
+            </Card>
+
+        </div>
+        
         </>
     )
 }

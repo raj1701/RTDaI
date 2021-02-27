@@ -10,7 +10,6 @@ import ForgotPassword from "./ForgotPassword"
 import UpdateProfile from "./UpdateProfile"
 import "bootstrap/dist/css/bootstrap.min.css"
 import Courseid from "./courseid"
-
 const teacherSign = () => {
   return (
     <Container
@@ -18,6 +17,7 @@ const teacherSign = () => {
       style={{ minHeight: "100vh" }}
     >
       <div className="w-100" style={{ maxWidth: "400px" }}>
+      
         <Router>
           <AuthProvider>
             <Switch>

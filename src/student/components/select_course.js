@@ -26,26 +26,6 @@ export default function Courseid(){
             await localStorage.setItem('course',course)
             var path = "/select_bench"
             history.push(path)
-            // var datausr =[]
-            // setCheck(true);
-            // const ref=await db.collection("courses").where("name", "==", course)
-            // if(ref.exists){
-            //     console.log("course does not exist")
-            // }
-            // else{
-            //     ref.get().then((querySnapshot) => {
-            //     if(!querySnapshot){
-            //         console.log("document doesnt exist");
-            //     }
-            //     // querySnapshot.forEach((doc) => {
-            //     //     // doc.data() is never undefined for query doc snapshots
-            //     //     console.log(doc.id, " => ", doc.data());
-            //     // });
-            //     datausr = querySnapshot.doc[0];
-            //     // <Route path='/bench' component={Bench} />
-            // })
-            // }
-        
         setLoading(false)
     }
     return(

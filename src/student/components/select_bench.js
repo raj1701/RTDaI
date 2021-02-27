@@ -5,7 +5,7 @@ import { useAuth } from "../contexts/AuthContext"
 import firebase from "firebase"
 import { Link, useHistory } from "react-router-dom"
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
-import App from '../example/src/App'
+// import App from '../example/src/App'
 // var data1 = []
 
 
@@ -29,22 +29,31 @@ import App from '../example/src/App'
     console.log(data1);
     
  }, [])
+ let history =  useHistory();
  const [bench_count,setbenchcount] = useState(0)
  const handleSubmit1 = () =>{
    localStorage.setItem('bench',1)
    setbenchcount(1)
+   var path = "/meet"
+   history.push(path)
  }
  const handleSubmit2 = () =>{
   localStorage.setItem('bench',2)
   setbenchcount(2)
+  var path = "/meet"
+  history.push(path)
 }
 const handleSubmit3 = () =>{
   localStorage.setItem('bench',3)
   setbenchcount(3)
+  var path = "/meet"
+  history.push(path)
 }
 const handleSubmit4 = () =>{
   localStorage.setItem('bench',4)
   setbenchcount(4)
+  var path = "/meet"
+  history.push(path)
 }
   return (
     <div>
@@ -64,7 +73,7 @@ const handleSubmit4 = () =>{
                       <p className="card-text">{item.bench1.student2}</p>
                       <p className="card-text">{item.bench1.student3}</p>
                       <p className="card-text">{item.bench1.student4}</p>
-                      {item.bench1.count}
+                      
                       <div className="input-group-btn">
                             <Button className="btn btn-default w-100" onClick={handleSubmit1} type="submit">
                             Join bench
@@ -74,7 +83,7 @@ const handleSubmit4 = () =>{
                     </div>
                     </Card.Body>
                   </Card>
-                  <Card style={{ width: '20rem'}}>
+                  <Card style={{ width: '18rem'}}>
                   <Card.Body>
                     <h5 className="card-header">Benches</h5>
                     <div class="card-body">
@@ -86,7 +95,7 @@ const handleSubmit4 = () =>{
                       <p className="card-text">{item.bench1.student3}</p>
                       <p className="card-text">{item.bench1.student4}</p>
                       <div className="input-group-btn">
-                        <Button className="btn btn-default w-100" onClick={(e) =>handleSubmit2} type="submit">
+                        <Button className="btn btn-default w-100" onClick={handleSubmit2} type="submit">
                         Join bench
                         </Button>
                         
@@ -107,7 +116,7 @@ const handleSubmit4 = () =>{
                       <p className="card-text">{item.bench3.student2}</p>
                       <p className="card-text">{item.bench3.student3}</p>
                       <p className="card-text">{item.bench3.student4}</p>
-                      {item.bench1.count}
+                      
                       <div className="input-group-btn">
                             <Button className="btn btn-default w-100" onClick={handleSubmit3} type="submit">
                             Join bench
@@ -117,7 +126,7 @@ const handleSubmit4 = () =>{
                     </div>
                     </Card.Body>
                   </Card>
-                  <Card style={{ width: '20rem'}}>
+                  <Card style={{ width: '18rem'}}>
                   <Card.Body>
                     <h5 className="card-header">Benches</h5>
                     <div class="card-body">
@@ -129,7 +138,7 @@ const handleSubmit4 = () =>{
                       <p className="card-text">{item.bench4.student3}</p>
                       <p className="card-text">{item.bench4.student4}</p>
                       <div className="input-group-btn">
-                        <Button className="btn btn-default w-100" onClick={(e) =>handleSubmit4} type="submit">
+                        <Button className="btn btn-default w-100" onClick={handleSubmit4} type="submit">
                         Join bench
                         </Button>
                         
@@ -142,11 +151,11 @@ const handleSubmit4 = () =>{
           </div>
         )
       })}
-      <Router>
+      {/* <Router>
         <Route path="/meet">
           <App />
         </Route>
-      </Router>
+      </Router> */}
     </div>  
   )
 }

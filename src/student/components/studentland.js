@@ -11,8 +11,8 @@ import UpdateProfile from "./UpdateProfile"
 import "bootstrap/dist/css/bootstrap.min.css"
 import Courseid from "./select_course"
 
-
 const studentSign = () => {
+  
   return (
     <Container
       className="d-flex align-items-center justify-content-center"

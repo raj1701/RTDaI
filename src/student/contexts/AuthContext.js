@@ -31,6 +31,8 @@ export function AuthProvider({ children }) {
 
   function logout() {
     localStorage.removeItem('email')
+    localStorage.removeItem('course')
+    localStorage.removeItem('bench')
     return auth.signOut()
     
   }
