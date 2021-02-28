@@ -3,8 +3,8 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ### Steps to follow after cloning
-Run the following command in the root folder .\
-npm install .\
+Run the following command in the root folder \
+npm install \
 npm install firebase firebase-auth react-jutsu react-bootstrap lib-jitsi-meet --force react-router-dom
 
 ### `yarn start`
