@@ -6,7 +6,7 @@ import teacherSign from './teacher/components/teacherland';
 import Bench from './student/components/select_bench';
 import {Button} from 'react-bootstrap';
 import './App.css';
-import App2 from './student/example/src/App'
+import App2 from './student/components/App'
 import App3 from './teacher/components/Teacher_App'
 //import App2 from './student/example/src/App'
 const App = () => {
