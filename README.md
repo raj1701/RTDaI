@@ -1,9 +1,16 @@
-# Getting Started with Create React App
+# RTDaI
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Description
+The inspiration of our idea comes from the previous online semester. One of the biggest disadvantages of online mode is that it cannot provide a traditional offline classroom experience . Students cannot have discussions with each other which we feel is essential for any learning. \
+We are planning to create an application where teachers and students can collaborate and engage in discussions of small groups . Teacher will have admin privileges. Teacher can allow students to start discussing in groups, with students being connected in the whole class meet simultaneously. Each group can ask doubts where Teacher(or many TAs) will solve their doubts in a FCFS manner. All the meet processes will be automated by us. Everything will happen at the click of a button thereby leading to ease of use . The end product would be something that replicates the ambience and feel of a traditional offline classroom and our approach will be in accordance with this goal in mind.
+### Tech Stack Used
+Firebase \
+React-js \
+jitsi-meet\
+### Libraries and dependencies
+Jutsu-api
 
-### Steps to follow after cloning
-Run the following command in the root folder \
+### Installation Steps
 npm install \
 npm install firebase firebase-auth react-jutsu react-bootstrap lib-jitsi-meet --force react-router-dom
 
